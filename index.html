@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>AI Conference Deadlines 2026–2027</title>
+  <title>CCF-A AI Deadlines 2026–2027</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
-      color-scheme: dark light;
+      color-scheme: light;
     }
     * {
       box-sizing: border-box;
@@ -15,62 +15,56 @@
       margin: 0;
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
         system-ui, -system-ui, "Segoe UI", sans-serif;
-      background: #050508;
-      color: #f5f5f7;
+      background: #ffffff;
+      color: #111111;
     }
     .container {
       width: 100%;
-      max-width: 960px;
-      padding: 24px 18px;
+      max-width: 720px;
+      padding: 16px 12px 20px;
     }
     .title {
       text-align: center;
-      font-size: 24px;
+      font-size: 16px;
       font-weight: 600;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 6px;
-      opacity: 0.9;
+      margin-bottom: 4px;
     }
     .subtitle {
       text-align: center;
-      font-size: 13px;
-      opacity: 0.7;
-      margin-bottom: 24px;
+      font-size: 11px;
+      color: #777777;
+      margin-bottom: 12px;
     }
     .conf-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
     }
     .conf-card {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: radial-gradient(
-          circle at top left,
-          rgba(255, 255, 255, 0.05),
-          transparent 55%
-        ),
-        rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(10px);
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid #e3e3e3;
+      background: #ffffff;
     }
     .conf-main {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
       min-width: 0;
+      flex: 1;
     }
     .conf-name {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
       white-space: nowrap;
       overflow: hidden;
@@ -79,14 +73,13 @@
     .conf-link {
       color: inherit;
       text-decoration: none;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
     }
     .conf-link:hover {
-      opacity: 0.8;
+      text-decoration: underline;
     }
     .conf-meta {
       font-size: 11px;
-      opacity: 0.75;
+      color: #777777;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -94,198 +87,149 @@
     }
     .badge {
       font-size: 10px;
-      padding: 2px 7px;
+      padding: 1px 6px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      opacity: 0.8;
-    }
-    .track {
-      font-size: 11px;
+      border: 1px solid #d8d8d8;
+      color: #555555;
     }
     .deadline-label {
       font-size: 11px;
-      opacity: 0.75;
+      color: #999999;
     }
     .countdown {
-      font-variant-numeric: tabular-nums;
+      font-size: 12px;
       text-align: right;
+      flex-shrink: 0;
+      min-width: 96px;
+    }
+    .countdown-main {
       font-size: 13px;
-      white-space: nowrap;
-      min-width: 120px;
+      font-variant-numeric: tabular-nums;
     }
     .countdown .value {
       font-size: 18px;
       font-weight: 600;
-      margin-right: 2px;
     }
     .countdown-status {
-      font-size: 11px;
-      opacity: 0.7;
+      font-size: 10px;
+      color: #999999;
+      margin-top: 2px;
     }
-    .countdown.closed {
-      opacity: 0.6;
-    }
-    .countdown.tba {
-      opacity: 0.7;
-    }
-    .footer {
-      margin-top: 18px;
-      font-size: 11px;
-      opacity: 0.55;
-      text-align: center;
-      line-height: 1.5;
-    }
-    @media (max-width: 640px) {
+    @media (max-width: 600px) {
       .conf-card {
         flex-direction: column;
         align-items: flex-start;
       }
       .countdown {
         text-align: left;
+        margin-top: 4px;
       }
+    }
+    .footer {
+      margin-top: 10px;
+      font-size: 10px;
+      color: #999999;
+      text-align: center;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="title">AI DEADLINES</div>
-    <div class="subtitle">2026–2027 顶会截稿倒计时（按浏览器本地时间）</div>
+    <div class="title">CCF-A AI DEADLINES</div>
+    <div class="subtitle">2026–2027 顶会截稿 · 大致剩余月份（按浏览器本地时间）</div>
     <div id="conf-list" class="conf-list"></div>
     <div class="footer">
-      数据基于 2025-12-11 前公开的会议信息，可能会变动；<br />
-      请以各会议官网为准。如有更新，只需修改本页 <code>conferences</code> 数组。
+      仅包含 CCF-A 人工智能顶会：AAAI / NeurIPS / ACL / CVPR / ICCV / ICML / IJCAI；<br />
+      截稿信息基于 2025-12-11 前公开数据，可能更新，请以各会议官网为准。
     </div>
   </div>
 
   <script>
     /**
-     * 2026 年：已经公布正式截稿时间的顶会
-     * 注意：deadlineUTC 是已经换算到 UTC 的绝对时间，倒计时基于这个时间计算。
+     * 只列 CCF-A AI 顶会：
+     *   AAAI, NeurIPS, ACL, CVPR, ICCV, ICML, IJCAI
+     * 这里只录 2026 & 2027 的会议。
      *
-     * 2027 年：大部分会议尚未公布，先作为占位（deadlineUTC: null），
-     * 会在界面中显示「日期待公布」，不计算倒计时。
+     * deadlineUTC:
+     *   - 已知：写成 UTC 时间字符串
+     *   - 未知：null（显示“日期待公布”，不算倒计时）
+     *
+     * 注意：AoE (UTC-12) 已大致换成 UTC，精确到天就足够用于“几个月”级别。
      */
+
     const conferences = [
-      // --- 2026 已有正式截止时间的会议 ---
+      // ===== 2026 =====
       {
         year: 2026,
         acronym: "AAAI",
         name: "AAAI-26",
-        track: "Main Track",
-        // Full paper: 2025-08-01 AoE → 2025-08-02 11:59 UTC
-        deadlineUTC: "2025-08-02T11:59:00Z",
-        deadlineLabel: "Full paper: 2025-08-01 (AoE)",
+        track: "Main Conference",
+        // 根据 AAAI-26 审稿流程与投稿说明，完整论文截稿在 2025-08-04 AoE 左右 :contentReference[oaicite:1]{index=1}
+        deadlineUTC: "2025-08-05T11:59:00Z",
+        deadlineLabel: "Full paper: 2025-08-04 (AoE)",
         url: "https://aaai.org/conference/aaai/aaai-26/"
       },
       {
         year: 2026,
-        acronym: "ICLR",
-        name: "ICLR 2026",
-        track: "Main Conference",
-        // Submission: 2025-09-24 23:59 AoE → 2025-09-25 11:59 UTC
-        deadlineUTC: "2025-09-25T11:59:00Z",
-        deadlineLabel: "Paper: 2025-09-24 (AoE)",
-        url: "https://iclr.cc/Conferences/2026/CallForPapers"
-      },
-      {
-        year: 2026,
-        acronym: "CVPR",
-        name: "CVPR 2026",
-        track: "Main Conference",
-        // Submission: 2025-11-13 23:59 AoE → 2025-11-14 11:59 UTC
-        deadlineUTC: "2025-11-14T11:59:00Z",
-        deadlineLabel: "Paper: 2025-11-13 23:59 (AoE)",
-        url: "https://cvpr.thecvf.com/Conferences/2026/Dates"
+        acronym: "IJCAI",
+        name: "IJCAI-ECAI 2026",
+        track: "Main Track",
+        // 官方声明：全文截稿 2026-01-19，23:59 AoE :contentReference[oaicite:2]{index=2}
+        deadlineUTC: "2026-01-20T11:59:00Z",
+        deadlineLabel: "Paper: 2026-01-19 (AoE)",
+        url: "https://2026.ijcai.org/"
       },
       {
         year: 2026,
         acronym: "ICML",
         name: "ICML 2026",
         track: "Main Conference",
-        // Full paper: 2026-01-28 AoE → 2026-01-29 11:59 UTC
-        deadlineUTC: "2026-01-29T11:59:00Z",
+        // Full paper 截稿：2026-01-28 AoE :contentReference[oaicite:3]{index=3}
+        deadlineUTC: "2026-01-29T12:00:00Z",
         deadlineLabel: "Full paper: 2026-01-28 (AoE)",
-        url: "https://icml.cc/Conferences/2026/CallForPapers"
+        url: "https://icml.cc/Conferences/2026"
       },
       {
         year: 2026,
-        acronym: "IJCAI",
-        name: "IJCAI-ECAI 2026",
-        track: "Main & Special Tracks",
-        // Full paper: 2026-01-19 AoE → 2026-01-20 11:59 UTC
-        deadlineUTC: "2026-01-20T11:59:00Z",
-        deadlineLabel: "Paper: 2026-01-19 (AoE)",
-        url: "https://2026.ijcai.org/important-dates/"
-      },
-      {
-        year: 2026,
-        acronym: "KDD",
-        name: "KDD 2026",
-        track: "Research 1st Cycle",
-        // Paper: 2025-07-31 AoE → 2025-08-01 11:59 UTC
-        deadlineUTC: "2025-08-01T11:59:00Z",
-        deadlineLabel: "Research: 2025-07-31 (AoE, 1st cycle)",
-        url: "https://kdd2026.kdd.org/research-track-call-for-papers/"
-      },
-      {
-        year: 2026,
-        acronym: "ECCV",
-        name: "ECCV 2026",
+        acronym: "ACL",
+        name: "ACL 2026",
         track: "Main Conference",
-        // SubmissionDeadline: 2026-03-06 12:00 CET → 2026-03-06 11:00 UTC
-        deadlineUTC: "2026-03-06T11:00:00Z",
-        deadlineLabel: "Paper: 2026-03-06 12:00 (CET)",
-        url: "https://eccv.ecva.net/"
+        // ACL 2026 采用 ARR，主会最终提交日期为 2026-01-05（AoE） :contentReference[oaicite:4]{index=4}
+        deadlineUTC: "2026-01-06T11:59:00Z",
+        deadlineLabel: "Submission: 2026-01-05 (AoE)",
+        url: "https://2026.aclweb.org/"
       },
-      // NeurIPS 2026 截稿目前尚未公布，先占位
+      {
+        year: 2026,
+        acronym: "CVPR",
+        name: "CVPR 2026",
+        track: "Main Conference",
+        // 投稿截稿：2025-11-13 23:59 AoE :contentReference[oaicite:5]{index=5}
+        deadlineUTC: "2025-11-14T11:59:00Z",
+        deadlineLabel: "Paper: 2025-11-13 (AoE)",
+        url: "https://cvpr.thecvf.com/Conferences/2026"
+      },
       {
         year: 2026,
         acronym: "NeurIPS",
         name: "NeurIPS 2026",
         track: "Main Conference",
+        // 官方 2026 Dates 页面尚未给出投稿截稿日期，仅有其他征稿信息 :contentReference[oaicite:6]{index=6}
         deadlineUTC: null,
         deadlineLabel: "Paper deadline: TBA",
         url: "https://neurips.cc/Conferences/2026"
       },
 
-      // --- 2027：目前基本都是占位，等官网放出日期后自行补充 deadlineUTC ---
+      // ===== 2027（目前大部分尚未官宣截稿时间，先占位）=====
       {
         year: 2027,
         acronym: "AAAI",
         name: "AAAI-27",
-        track: "Main Track",
+        track: "Main Conference",
         deadlineUTC: null,
         deadlineLabel: "TBA",
         url: "https://aaai.org/conference/aaai/"
-      },
-      {
-        year: 2027,
-        acronym: "ICLR",
-        name: "ICLR 2027",
-        track: "Main Conference",
-        deadlineUTC: null,
-        deadlineLabel: "TBA",
-        url: "https://iclr.cc/"
-      },
-      {
-        year: 2027,
-        acronym: "CVPR",
-        name: "CVPR 2027",
-        track: "Main Conference",
-        deadlineUTC: null,
-        deadlineLabel: "TBA",
-        url: "https://cvpr.thecvf.com/"
-      },
-      {
-        year: 2027,
-        acronym: "ICML",
-        name: "ICML 2027",
-        track: "Main Conference",
-        deadlineUTC: null,
-        deadlineLabel: "TBA",
-        url: "https://icml.cc/"
       },
       {
         year: 2027,
@@ -298,12 +242,40 @@
       },
       {
         year: 2027,
-        acronym: "KDD",
-        name: "KDD 2027",
-        track: "Research / ADS",
+        acronym: "ICML",
+        name: "ICML 2027",
+        track: "Main Conference",
         deadlineUTC: null,
         deadlineLabel: "TBA",
-        url: "https://www.kdd.org/conferences"
+        url: "https://icml.cc/"
+      },
+      {
+        year: 2027,
+        acronym: "ACL",
+        name: "ACL 2027",
+        track: "Main Conference",
+        deadlineUTC: null,
+        deadlineLabel: "TBA",
+        url: "https://www.aclweb.org/"
+      },
+      {
+        year: 2027,
+        acronym: "CVPR",
+        name: "CVPR 2027",
+        track: "Main Conference",
+        deadlineUTC: null,
+        deadlineLabel: "TBA",
+        url: "https://cvpr.thecvf.com/"
+      },
+      {
+        year: 2027,
+        acronym: "ICCV",
+        name: "ICCV 2027",
+        track: "Main Conference",
+        // ICCV 2027 暂仅公布“Dates: TBD”等信息 :contentReference[oaicite:7]{index=7}
+        deadlineUTC: null,
+        deadlineLabel: "TBA",
+        url: "https://iccv.thecvf.com/"
       },
       {
         year: 2027,
@@ -313,15 +285,6 @@
         deadlineUTC: null,
         deadlineLabel: "TBA",
         url: "https://neurips.cc/"
-      },
-      {
-        year: 2027,
-        acronym: "ICCV",
-        name: "ICCV 2027",
-        track: "Main Conference",
-        deadlineUTC: null,
-        deadlineLabel: "TBA",
-        url: "https://iccv2027.thecvf.com/"
       }
     ];
 
@@ -330,27 +293,38 @@
       if (!listEl) return;
 
       listEl.innerHTML = "";
+      const now = Date.now();
 
+      // 按时间排序：有具体 deadline 的在前，按时间先后；再按年份+缩写
       const sorted = [...conferences].sort((a, b) => {
-        const hasDeadlineA = !!a.deadlineUTC;
-        const hasDeadlineB = !!b.deadlineUTC;
+        const hasA = !!a.deadlineUTC;
+        const hasB = !!b.deadlineUTC;
 
-        if (hasDeadlineA && hasDeadlineB) {
-          const da = new Date(a.deadlineUTC).getTime();
-          const db = new Date(b.deadlineUTC).getTime();
-          if (da !== db) return da - db;
-        } else if (hasDeadlineA && !hasDeadlineB) {
+        if (hasA && hasB) {
+          const ta = new Date(a.deadlineUTC).getTime();
+          const tb = new Date(b.deadlineUTC).getTime();
+          if (!isNaN(ta) && !isNaN(tb) && ta !== tb) {
+            return ta - tb;
+          }
+        } else if (hasA && !hasB) {
           return -1;
-        } else if (!hasDeadlineA && hasDeadlineB) {
+        } else if (!hasA && hasB) {
           return 1;
         }
 
-        // 若都没有 deadline 或时间相同，则按 year + acronym 排序
         if (a.year !== b.year) return a.year - b.year;
         return a.acronym.localeCompare(b.acronym);
       });
 
       for (const conf of sorted) {
+        // 如果有具体 deadline 且已经过了，“已经截止的不要显示”
+        if (conf.deadlineUTC) {
+          const t = new Date(conf.deadlineUTC).getTime();
+          if (!isNaN(t) && t <= now) {
+            continue;
+          }
+        }
+
         const card = document.createElement("div");
         card.className = "conf-card";
         card.dataset.deadlineUtc = conf.deadlineUTC || "";
@@ -361,7 +335,6 @@
 
         const nameEl = document.createElement("div");
         nameEl.className = "conf-name";
-
         if (conf.url) {
           const link = document.createElement("a");
           link.className = "conf-link";
@@ -382,7 +355,6 @@
         badge.textContent = conf.year;
 
         const track = document.createElement("span");
-        track.className = "track";
         track.textContent = `${conf.acronym} · ${conf.track}`;
 
         meta.appendChild(badge);
@@ -398,14 +370,17 @@
 
         const countdown = document.createElement("div");
         countdown.className = "countdown";
-        countdown.innerHTML =
+
+        const mainText = document.createElement("div");
+        mainText.className = "countdown-main";
+        mainText.textContent =
           conf.deadlineUTC === null ? "日期待公布" : "计算中…";
 
         const status = document.createElement("div");
         status.className = "countdown-status";
-        status.textContent = "";
+        status.textContent = conf.deadlineUTC ? "" : "等待官网公布";
 
-        countdown.appendChild(document.createElement("br"));
+        countdown.appendChild(mainText);
         countdown.appendChild(status);
 
         card.appendChild(main);
@@ -415,7 +390,7 @@
     }
 
     function updateCountdowns() {
-      const now = new Date().getTime();
+      const now = Date.now();
       const cards = document.querySelectorAll(".conf-card");
 
       cards.forEach((card) => {
@@ -423,51 +398,48 @@
         const countdownEl = card.querySelector(".countdown");
         if (!countdownEl) return;
 
+        const mainEl = countdownEl.querySelector(".countdown-main");
         const statusEl = countdownEl.querySelector(".countdown-status");
 
         if (!deadlineStr) {
-          countdownEl.classList.add("tba");
-          countdownEl.firstChild.textContent = "日期待公布";
-          if (statusEl) statusEl.textContent = "";
+          if (mainEl) mainEl.textContent = "日期待公布";
+          if (statusEl) statusEl.textContent = "等待官网公布";
           return;
         }
 
         const deadline = new Date(deadlineStr).getTime();
-        const diff = deadline - now;
-
-        if (diff <= 0) {
-          countdownEl.classList.add("closed");
-          countdownEl.firstChild.textContent = "已截止";
+        if (isNaN(deadline)) {
+          if (mainEl) mainEl.textContent = "日期解析错误";
           if (statusEl) statusEl.textContent = "";
           return;
         }
 
-        const totalSeconds = Math.floor(diff / 1000);
-        const days = Math.floor(totalSeconds / (24 * 3600));
-        const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
-        const mins = Math.floor((totalSeconds % 3600) / 60);
+        const diff = deadline - now;
 
-        countdownEl.classList.remove("closed", "tba");
-        countdownEl.firstChild.innerHTML =
-          '<span class="value">' +
-          days +
-          "</span>d " +
-          '<span class="value">' +
-          hours +
-          "</span>h " +
-          '<span class="value">' +
-          mins +
-          "</span>m";
+        // 如果刚好在运行时过了截稿，直接隐藏这张卡片
+        if (diff <= 0) {
+          card.style.display = "none";
+          return;
+        }
 
+        // 以 30 天 ≈ 1 个月做粗略估计
+        const monthsApprox = diff / (1000 * 60 * 60 * 24 * 30);
+        let monthsInt = Math.round(monthsApprox);
+        if (monthsInt < 1) monthsInt = 1;
+
+        if (mainEl) {
+          mainEl.innerHTML =
+            '约 <span class="value">' + monthsInt + "</span> 个月";
+        }
         if (statusEl) {
-          statusEl.textContent = "剩余时间";
+          statusEl.textContent = "大致剩余时间";
         }
       });
     }
 
     renderConferences();
     updateCountdowns();
-    // 每分钟刷新一次
+    // 每分钟刷新一次（长时间开着页面时仍然大致准确）
     setInterval(updateCountdowns, 60 * 1000);
   </script>
 </body>
